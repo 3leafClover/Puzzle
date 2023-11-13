@@ -1,19 +1,19 @@
 body {
-    background-color: black;
+    background-color: rgb(7, 0, 112);
     background-image: url("videoplasty-18255-data-background-motion-graphics-pdp.gif");
     background-size:cover;
-    font-family: sans-serif;
+    font-family:sans-serif;
     color: white;
     overflow: hidden;
 }
 
 :root{
-    --main: aqua;
+    --main: rgb(0, 209, 209);
 
 }
 .center{
-    padding-left: 37%;
-    padding-top: 8%;
+    padding-left: 5%;
+    padding-top:5%;
 }
 #top{
     position: absolute;
@@ -21,8 +21,11 @@ body {
     left: 0;
     width: 100%;
     background-color: var(--main);
-    box-shadow: 0px 0px 500px black;
-    height:35px;
+    box-shadow: 0px 0px 500px rgb(0, 0, 0);
+    height:58px;
+    z-index: 5;
+    border-bottom: 5px solid white;
+
 }
 .draggable {
     width: 200px;
@@ -47,11 +50,12 @@ body {
     left: 270px;
     font-size: 31px;
     padding-top: 0%;
+    cursor: pointer;
 }
-i{
+.close i{
     position: relative;
     bottom: 6px;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 .content {
     min-height: 300px;
@@ -74,4 +78,48 @@ i{
 .win-desc{
     margin: 8px;
     font-size: 9;
+}
+#open-side-menu{
+    right: 15px;
+}
+#settings{
+    left: 9px;
+}
+#top i{
+    top:0px;
+    cursor: pointer;
+    font-size: 39px;
+    position: absolute;
+}
+#side-menu{
+    height:100%;
+    width: 25%;
+    position: absolute;
+    z-index: 1;
+    right: 0px;     
+    background-color: black;
+    padding-top: 59px;
+    border-left: 5px solid white;
+}
+.sm-bar{
+    width: 80%;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.486);
+    height: 81px;
+    margin-left: 10%;
+    padding-top: 20px;
+    color: var(--main);
+}
+.sm-bar-cont{
+    background-color: blacky;
+}
+.sm-bar-cont:hover{
+    background-color: rgb(32, 32, 32);
+
+    width:100% ;
+}
+.solved{
+    color: rgb(0, 255, 0);
+}
+.unsolved{
+    color: rgb(255, 0, 0);
 }
