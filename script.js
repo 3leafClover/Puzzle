@@ -47,3 +47,37 @@ draggableTabs.forEach(function(draggableTab) {
     draggableTab.style.display="none";
   });
 });
+
+const fullscreenButton = document.getElementById('fc');
+
+fullscreenButton.addEventListener('click', toggleFullScreen);
+document.addEventListener('fullscreenchange', toggleButtonVisibility);
+function toggleFullScreen() {
+  const elem = document.documentElement;
+
+  if (!document.fullscreenElement) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      elem.msRequestFullscreen();
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+  }
+}
+
+function toggleButtonVisibility() {
+  fullscreenButton.style.display = document.fullscreenElement ? 'none' : 'inline-block';
+}

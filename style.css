@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(7, 0, 112);
+    background-color: rgb(2, 0, 34);
     background-image: url("videoplasty-18255-data-background-motion-graphics-pdp.gif");
     background-size:cover;
     font-family:sans-serif;
@@ -12,8 +12,8 @@ body {
 
 }
 .center{
-    padding-left: 5%;
-    padding-top:5%;
+    padding-left: 35%;
+    padding-top:9%;
 }
 #top{
     position: absolute;
@@ -21,7 +21,6 @@ body {
     left: 0;
     width: 100%;
     background-color: var(--main);
-    box-shadow: 0px 0px 500px rgb(0, 0, 0);
     height:58px;
     z-index: 5;
     border-bottom: 5px solid white;
@@ -85,6 +84,9 @@ body {
 #settings{
     left: 9px;
 }
+#fc{
+    left: 55px;
+}
 #top i{
     top:0px;
     cursor: pointer;
@@ -108,10 +110,9 @@ body {
     margin-left: 10%;
     padding-top: 20px;
     color: var(--main);
+    cursor: pointer;
 }
-.sm-bar-cont{
-    background-color: blacky;
-}
+
 .sm-bar-cont:hover{
     background-color: rgb(32, 32, 32);
 
@@ -122,4 +123,33 @@ body {
 }
 .unsolved{
     color: rgb(255, 0, 0);
+}
+.notification{
+    position: absolute;
+    top: 85px;
+    width: 235px;
+    height: 65px;
+    background-color: #000000;
+    z-index: 7;
+    left: -20px;
+    border: 2px solid var(--main);
+    transform: skew(-30deg);
+    text-align: center;
+    padding-top: 3px;
+    box-shadow: 0px 0px 3px var(--main);
+}
+.notification p,h4{
+    transform:skew(30deg);
+    margin: 0px;
+}
+.notification p{
+    color: var(--main);
+}
+.notif-rect{
+    position: absolute;
+    width: 35px;
+    height: 63px;
+    top: 0px;
+    background-color: var(--main);
+    left:255px;
 }
