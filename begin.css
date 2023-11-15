@@ -24,6 +24,12 @@ p{
     display: none;
     
 }
+.status{
+    display: none;
+    font-size: 65px;
+    text-align: left;
+    margin-left: 311px;
+}
 input,#dialogue2 p{
     font-size: 95px;
     margin-bottom: -33px;
@@ -55,4 +61,12 @@ input{
 }
 .green{
     color: rgb(0, 255, 0);
+}
+@keyframes b1 {
+    from {
+        background-color: black;
+    }
+    to {
+        background-color: rgb(255, 255, 255);
+    }
 }
