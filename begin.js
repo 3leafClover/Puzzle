@@ -118,12 +118,8 @@ function launch() {
     d7.style.display = 'none';
   }, 18000);
   setTimeout(function () {
-    body.style.animation = 'b1 3s forwards';
-  }, 19000);
-  setTimeout(function () {
-    // Redirect to solved.html
     window.location.href = 'solved.html';
-  }, 22000);
+  }, 20000);
 }
 
 

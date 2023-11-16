@@ -1,3 +1,10 @@
+window.addEventListener("load", function () {
+  // Assuming you have a predefined CSS animation named "loaded"
+  preloader = document.getElementById("preloader");
+  preloader.style.animation = "loaded 3s forwards";
+  console.log("Page is fully loaded!");
+});
+
 // Get all elements with the class "draggable-tab"
 var draggableTabs = document.querySelectorAll('.draggable');
 
@@ -81,3 +88,5 @@ function toggleFullScreen() {
 function toggleButtonVisibility() {
   fullscreenButton.style.display = document.fullscreenElement ? 'none' : 'inline-block';
 }
+
+
