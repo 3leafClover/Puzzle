@@ -1,3 +1,7 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(TechnicalStandardVP-Light.otf);
+ }
 body {
     background-color: rgb(2, 0, 34);
     background-image: url("videoplasty-18255-data-background-motion-graphics-pdp.gif");
@@ -5,6 +9,7 @@ body {
     font-family:sans-serif;
     color: white;
     overflow: hidden;
+    font-family: myFirstFont;
 }
 
 :root{

@@ -17,6 +17,7 @@ function handleKeyPress(event) {
     }, 1000);
     setTimeout(function () {
       d3.style.display = "block";
+      const inputField = document.querySelector('input').focus();
     }, 2000);
   }
 }
