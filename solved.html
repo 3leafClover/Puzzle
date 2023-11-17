@@ -14,15 +14,17 @@
     <div id="preloader">
       <img src="https://i.gifer.com/2RNb.gif" id="load-gif"><p id="load-text">loading</p><p id="load-tip">Tip: Use alt + F for full screen</p>
     </div>
+
+
     <div id="top"><i class="bi bi-gear-fill" id="settings">
       <i class="bi bi-fullscreen" id="fc"></i>
       </i><i class="bi bi-arrow-bar-left" id="open-side-menu"></i>
     </div>
 
     <div id="side-menu">
-      <div class="sm-bar-cont"><div class="sm-bar"><h3><i class="bi bi-music-note-beamed"></i> Music</h3></div></div>
+      <div class="sm-bar-cont"onclick="tabopen('music')"><div class="sm-bar"><h3><i class="bi bi-music-note-beamed"></i> Music</h3></div></div>
       <div class="sm-bar-cont"><div class="sm-bar"><h3><i class="bi bi-alt"></i> Shortcuts</h3></div></div>
-      <div class="sm-bar-cont"><div class="sm-bar"><h3><i class="bi bi-card-text"></i> Notes</h3></div></div>
+      <div class="sm-bar-cont" onclick="tabopen('notes')"><div class="sm-bar"><h3><i class="bi bi-card-text"></i> Notes</h3></div></div>
       <div class="sm-bar-cont"><div class="sm-bar"><h3><i class="bi bi-palette-fill"></i> Themes</h3></div></div>
       <div class="sm-bar-cont"><div class="sm-bar"><h3 class="unsolved"><i class="bi bi-puzzle"></i> Unsolved</h3></div></div>
       <div class="sm-bar-cont"><div class="sm-bar"><h3 class="solved"><i class="bi bi-puzzle-fill"></i> Solved</h3></div></div>
@@ -40,24 +42,38 @@
 
     <div class="center">
 
-      <div class="draggable">
+
+
+      <div class="draggable" style="display: block;">
         <div class="drag-handle">
         </div>
         <div class="close"><i class="bi bi-x"></i></div>
-
         <div class="content">
-          <h2 class="win-title">TESTING</h2>
-          <p class="win-desc">YOOOOOO THE THING, THI TAB IS DRAGGABLE TRY TO DRAG IT WITH THE RECTANGLE THING ON THE TOP. THIS TOOK WAY TOO LONG. The close button doesnt work yet lmao will work on that</p>
+          <h2 class="win-title">Features on this page so far</h2>
+          <p class="win-desc">The full screen button on the top left, the music and notes tabs appear when you press them in the side nav bar but the music tab doesnt work yet. notes dont save yet. the bar on the top left is a notification, the text inside it is a place holder, it also doesnt go out of screen overtime. No shortcuts work yet</p>
         </div>
       </div>
-      <div class="draggable">
+
+
+      <div class="draggable" id="notes">
         <div class="drag-handle">
         </div>
         <div class="close"><i class="bi bi-x"></i></div>
-
         <div class="content">
-          <h2 class="win-title">TESTING</h2>
-          <p class="win-desc">YOOOOOO THE THING, THI TAB IS DRAGGABLE TRY TO DRAG IT WITH THE RECTANGLE THING ON THE TOP. THIS TOOK WAY TOO LONG. The close button doesnt work yet lmao will work on that</p>
+          <h2 class="win-title">Notes</h2>
+          <p class="win-desc"><textarea id="notes-textarea" placeholder="Anything written here will be saved"></textarea></p>
+        </div>
+      </div>
+
+
+      <div class="draggable" id="music">
+        <div class="drag-handle">
+        </div>
+        <div class="close"><i class="bi bi-x"></i></div>
+        <div class="content">
+          <h2 class="win-title">Music</h2>
+          <div id="music-nav"><p class="mus-nav-btn selected">Player</p><p class="mus-nav-btn">List</p><p class="mus-nav-btn">Artists</p></div>
+          <div class="mus-page" id="mus-player"><div id="mus-info"><h3>Chaotic Code</h3><p>By SNKS Project</p></div><div id="mus-bar"></div><div class="mus-btn-cont"><i class="bi bi-caret-left-fill mus-btn"></i><i class="bi bi-pause-fill mus-btn"></i><i class="bi bi-caret-right-fill mus-btn"></i></div></div>
         </div>
       </div>
 

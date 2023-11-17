@@ -90,3 +90,9 @@ function toggleButtonVisibility() {
 }
 
 
+function tabopen(name) {
+  var tab = document.getElementById(name);
+  if (tab) {
+    tab.style.display = "block";
+  }
+}

@@ -2,6 +2,7 @@
     font-family: myFirstFont;
     src: url(TechnicalStandardVP-Light.otf);
  }
+ 
 body {
     background-color: rgb(2, 0, 34);
     background-image: url("videoplasty-18255-data-background-motion-graphics-pdp.gif");
@@ -46,6 +47,7 @@ body {
     }
     to {
       opacity: 0;
+      
       display: none;
     }
 
@@ -74,6 +76,7 @@ body {
 .draggable {
     width: 200px;
     position: absolute;
+    display: none;
 }
   
 .drag-handle {
@@ -109,6 +112,7 @@ body {
     width: 300px;
     border-left: 9px solid var(--main);
     box-shadow: 0px 0px 3px var(--main);
+    
 }
 
 .win-title{
@@ -197,4 +201,85 @@ body {
     top: 0px;
     background-color: var(--main);
     left:255px;
+}
+#notes-textarea{
+    height:235px;
+    width:100%;
+    background-color: black;
+    color: white;
+    resize: none;
+    border: none;
+}
+textarea:focus {
+    outline: none;
+  }
+::-webkit-scrollbar {
+    width: 9px;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background: var(--main);
+    width: 1px;
+}
+#music-nav {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: calc(100% + 2px);
+    text-align: center;
+    left: -1px;
+}
+
+.mus-nav-btn{
+    flex-grow: 0.5;
+    flex-basis: 0;
+    font-size: 19px;
+    cursor: pointer;
+    color: var(--main);
+    border-bottom: 1px solid var(--main);
+    margin: 0px;
+}
+.mus-page{
+    width: 100%;
+    height:224px;
+}
+.selected{
+    color: white;
+    border: 1px solid var(--main);
+    border-bottom:none ;
+}
+
+#mus-info{
+    width:100%;
+    padding: 15px;
+    border-bottom: 1px solid var(--main);
+    padding-bottom: 5px;
+    position: relative;
+}
+#mus-info h3{
+    font-size: 31px;
+}
+#mus-info p{
+    color: var(--main);
+}
+.mus-btn-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.mus-btn {
+    cursor: pointer;
+    color: var(--main);
+    font-size: 45px;
+}
+#mus-bar{
+    background-color: var(--main);
+    width: 219px;
+    margin-left :35px;
+    height: 5px;
+    margin-top: 29px;
+    margin-bottom: 9px;
 }
