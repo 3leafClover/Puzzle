@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">  
   </head>
   <body>
-
+<!-- 
     <div id="preloader">
       <img src="https://i.gifer.com/2RNb.gif" id="load-gif"><p id="load-text">loading</p><p id="load-tip">Tip: Use alt + F for full screen</p>
-    </div>
+    </div> -->
 
 
     <div id="top"><i class="bi bi-gear-fill" id="settings">
@@ -50,7 +50,7 @@
         <div class="close"><i class="bi bi-x"></i></div>
         <div class="content">
           <h2 class="win-title">Features on this page so far</h2>
-          <p class="win-desc">The full screen button on the top left, the music and notes tabs appear when you press them in the side nav bar but the music tab doesnt work yet. notes dont save yet. the bar on the top left is a notification, the text inside it is a place holder, it also doesnt go out of screen overtime. No shortcuts work yet</p>
+          <p class="win-desc">The full screen button on the top left, the music and notes tabs appear when you press them in the side nav. MUSIC HAS FINALLY BEEN ADDED AND IT TOOK ME LIKE 4 HOURS. notes dont save yet. the bar on the top left is a notification, the text inside it is a place holder, it also doesnt go out of screen overtime. No shortcuts work yet</p>
         </div>
       </div>
 
@@ -72,8 +72,71 @@
         <div class="close"><i class="bi bi-x"></i></div>
         <div class="content">
           <h2 class="win-title">Music</h2>
-          <div id="music-nav"><p class="mus-nav-btn selected">Player</p><p class="mus-nav-btn">List</p><p class="mus-nav-btn">Artists</p></div>
-          <div class="mus-page" id="mus-player"><div id="mus-info"><h3>Chaotic Code</h3><p>By SNKS Project</p></div><div id="mus-bar"></div><div class="mus-btn-cont"><i class="bi bi-caret-left-fill mus-btn"></i><i class="bi bi-pause-fill mus-btn"></i><i class="bi bi-caret-right-fill mus-btn"></i></div></div>
+          <div id="music-nav">
+            <p class="mus-nav-btn" id="mus-player-li" onclick="playerSelect('mus-player-li')">Player</p>
+            <p class="mus-nav-btn" id="mus-list-li" onclick="playerSelect('mus-list-li')">List</p>
+            <p class="mus-nav-btn" id="mus-artists-li" onclick="playerSelect('mus-artists-li')">Artists</p>
+          </div>
+          <div class="mus-page" style="display: block;"><p style="margin:15px;margin-top: 25px;font-size: 25px;position: absolute;width: 259px;">Note: All music here is royalty free or used with the permission of their respective artists</p></div>
+
+          <div class="mus-page" id="mus-player">
+            <div id="mus-info">
+              <h3>Chaotic Code</h3>
+              <p>By SNKS Project</p>
+
+            </div>
+            <div class="mus-btn-cont">
+              <i class="bi bi-caret-left-fill mus-btn" onclick="goBackSong()"></i>
+              <i class="bi bi-pause-fill mus-btn" onclick="pauseSong()"></i>
+              <i class="bi bi-caret-right-fill mus-btn" onclick="skipSong()"></i>
+            </div>
+          </div>
+
+          <div class="mus-page" id="mus-list">
+
+            <div class="mus-song" onclick="selectSong(this)">
+              <p><i class="bi bi-caret-right-fill mus-btn"></i> Chaotic_Code</p><span class="artist-name">SNKS Project</span>
+            </div>
+            <div class="mus-song" onclick="selectSong(this)">
+              <p><i class="bi bi-caret-right-fill mus-btn"></i> Lazúrillys</p><span class="artist-name">Ascellia Mio</span>
+            </div>
+            <div class="mus-song" onclick="selectSong(this)">
+              <p><i class="bi bi-caret-right-fill mus-btn"></i> NamiRyo</p><span class="artist-name">Aisthimata</span>
+            </div>
+          </div>
+
+
+
+          <div class="mus-page" id="mus-artists">
+            <div class="artist">
+              <img src="pfp.png">
+              <div class="artist-info">
+                <h5>Artist Name</h5>
+                <p>"Artist Quote"</p>
+              </div>
+            </div>
+            <div class="artist">
+              <img src="pfp.png">
+              <div class="artist-info">
+                <h5>Clovey Wovie</h5>
+                <p>"Everything here is a placeholder rn"</p>
+              </div>
+            </div>
+            <div class="artist">
+              <img src="pfp.png">
+              <div class="artist-info">
+                <h5>Clovey Wovie</h5>
+                <p>"Alberto go water the plants"</p>
+              </div>
+            </div>
+            <div class="artist">
+              <img src="pfp.png">
+              <div class="artist-info">
+                <h5>Clovey Wovie</h5>
+                <p>"Alberto go water the plants"</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -85,7 +148,10 @@
 
     
 
-  
+    <audio id="musicPlayer" controls>
+      <source src="namiryo.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
 
     <script src="script.js"></script>
   </body>

@@ -96,3 +96,143 @@ function tabopen(name) {
     tab.style.display = "block";
   }
 }
+
+
+function playerSelect(selectedId) {
+  // Reset styles for all elements
+  var elements = document.getElementsByClassName('mus-nav-btn');
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].style.color = 'var(--main)';
+    elements[i].style.border="none";
+    elements[i].style.borderBottom = '1px solid var(--main)';
+  }
+
+  // Apply styles for the selected element
+  var selectedElement = document.getElementById(selectedId);
+  selectedElement.style.color = 'white';
+  selectedElement.style.border = '1px solid var(--main)';
+  selectedElement.style.borderBottom = 'none';
+
+  if (selectedId=="mus-player-li"){
+    page=document.getElementById("mus-player");
+    var elements = document.getElementsByClassName('mus-page');
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].style.display="none";
+    }
+    page.style.display="block"
+  }
+
+  if (selectedId=="mus-list-li"){
+    page=document.getElementById("mus-list");
+    var elements = document.getElementsByClassName('mus-page');
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].style.display="none";
+    }
+    page.style.display="block"
+  }
+
+  if (selectedId=="mus-artists-li"){
+    page=document.getElementById("mus-artists");
+    var elements = document.getElementsByClassName('mus-page');
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].style.display="none";
+    }
+    page.style.display="block"
+  }
+}
+
+var selectedSong = null;
+var musicPlayer = document.getElementById('musicPlayer');
+var songList = document.querySelectorAll('.mus-song');
+var currentSongIndex = 0;
+
+// Add click event listeners to all song elements
+for (var i = 0; i < songList.length; i++) {
+  songList[i].addEventListener('click', function () {
+    selectSong(this);
+  });
+}
+
+// Function to handle the play button click
+function playSelectedSong() {
+  if (selectedSong) {
+    // Set the source of the audio player to the selected song
+    musicPlayer.src = selectedSong.toLowerCase().replace(/\s+/g, '') + '.mp3';
+
+    // Play the audio
+    musicPlayer.play();
+  }
+}
+
+// Function to handle the pause button click
+function pauseSong() {
+  if (musicPlayer.paused) {
+    // If the audio is paused, resume it
+    musicPlayer.play();
+  } else {
+    // If the audio is playing, pause it
+    musicPlayer.pause();
+  }
+}
+
+// Add an event listener to the musicPlayer for the "ended" event
+musicPlayer.addEventListener('ended', function () {
+  // Call the function to play the next song
+  skipSong();
+});
+
+// Function to handle the skip button click
+function skipSong() {
+  if (currentSongIndex < songList.length - 1) {
+    // Increment the current song index
+    currentSongIndex++;
+  } else {
+    // If at the end of the playlist, loop back to the first song
+    currentSongIndex = 0;
+  }
+
+  // Select and play the next song
+  selectSong(songList[currentSongIndex]);
+}
+
+// Function to handle the go back button click
+function goBackSong() {
+  if (currentSongIndex > 0) {
+    // Decrement the current song index
+    currentSongIndex--;
+  } else {
+    // If at the first song, loop to the last song
+    currentSongIndex = songList.length - 1;
+  }
+
+  // Select and play the previous song
+  selectSong(songList[currentSongIndex]);
+}
+
+function selectSong(songElement) {
+  // Reset styles for all song elements
+  var songElements = document.querySelectorAll('.mus-song');
+  for (var i = 0; i < songElements.length; i++) {
+    songElements[i].classList.remove('selected');
+  }
+
+  // Apply styles for the selected song
+  songElement.classList.add('selected');
+  selectedSong = songElement.querySelector('p').textContent.trim();
+
+  // Get the player and artist elements
+  var playerElement = document.getElementById('mus-info').querySelector('h3');
+  var artistElement = document.getElementById('mus-info').querySelector('p');
+
+  // Extract the artist name from the span element, if present
+  var artistNameElement = songElement.querySelector('.artist-name');
+  var artistName = artistNameElement ? artistNameElement.textContent.trim() : '';
+
+  // Update the player and artist names
+  playerElement.textContent = selectedSong;
+  artistElement.textContent = artistName ? "By " + artistName : '';
+
+  // Play the selected song
+  playSelectedSong();
+}
+
