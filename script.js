@@ -1,9 +1,35 @@
 window.addEventListener("load", function () {
   // Assuming you have a predefined CSS animation named "loaded"
   preloader = document.getElementById("preloader");
-  preloader.style.animation = "loaded 3s forwards";
+  preloader.style.animation = "loaded 1s forwards";
   console.log("Page is fully loaded!");
+
+  // Set the selected song
+  selectedSong = "Chaotic_Code";
+
+  // Simulate a click on the song after a delay
+  setTimeout(function () {
+    // Find the element corresponding to the selected song
+    var songElement = findSongElement(selectedSong);
+
+    // If the element is found, trigger the click event
+    if (songElement) {
+      songElement.click();
+    }
+  }, 3000);
 });
+
+// Function to find a song element based on the song name
+function findSongElement(songName) {
+  var songElements = document.querySelectorAll('.mus-song');
+  for (var i = 0; i < songElements.length; i++) {
+    if (songElements[i].textContent.includes(songName)) {
+      return songElements[i];
+    }
+  }
+  return null;
+}
+
 
 // Get all elements with the class "draggable-tab"
 var draggableTabs = document.querySelectorAll('.draggable');
@@ -166,14 +192,23 @@ function playSelectedSong() {
 
 // Function to handle the pause button click
 function pauseSong() {
+  var pauseButton = document.getElementById('pauseButton');
+
   if (musicPlayer.paused) {
     // If the audio is paused, resume it
     musicPlayer.play();
+    // Change the icon to pause
+    pauseButton.classList.remove('bi-play-fill');
+    pauseButton.classList.add('bi-pause-fill');
   } else {
     // If the audio is playing, pause it
     musicPlayer.pause();
+    // Change the icon to play
+    pauseButton.classList.remove('bi-pause-fill');
+    pauseButton.classList.add('bi-play-fill');
   }
 }
+
 
 // Add an event listener to the musicPlayer for the "ended" event
 musicPlayer.addEventListener('ended', function () {
@@ -186,6 +221,8 @@ function skipSong() {
   if (currentSongIndex < songList.length - 1) {
     // Increment the current song index
     currentSongIndex++;
+    pauseButton.classList.remove('bi-play-fill');
+    pauseButton.classList.add('bi-pause-fill');
   } else {
     // If at the end of the playlist, loop back to the first song
     currentSongIndex = 0;
@@ -200,6 +237,8 @@ function goBackSong() {
   if (currentSongIndex > 0) {
     // Decrement the current song index
     currentSongIndex--;
+    pauseButton.classList.remove('bi-play-fill');
+    pauseButton.classList.add('bi-pause-fill');
   } else {
     // If at the first song, loop to the last song
     currentSongIndex = songList.length - 1;
@@ -220,6 +259,9 @@ function selectSong(songElement) {
   songElement.classList.add('selected');
   selectedSong = songElement.querySelector('p').textContent.trim();
 
+  // Update the current song index
+  currentSongIndex = Array.from(songElements).indexOf(songElement);
+
   // Get the player and artist elements
   var playerElement = document.getElementById('mus-info').querySelector('h3');
   var artistElement = document.getElementById('mus-info').querySelector('p');
@@ -234,5 +276,41 @@ function selectSong(songElement) {
 
   // Play the selected song
   playSelectedSong();
+
+  // Trigger the notification with the song information
+  notification("Now Playing:", selectedSong);
 }
 
+
+
+// Get the notes area element
+var notesArea = document.getElementById("notes-textarea");
+
+// Load notes from local storage when the page loads
+window.addEventListener("load", function() {
+  // Check if there are saved notes in local storage
+  if (localStorage.getItem("notes")) {
+    // Load the saved notes into the notes area
+    notesArea.value = localStorage.getItem("notes");
+  }
+});
+
+// Save notes to local storage when the content changes
+notesArea.addEventListener("input", function() {
+  // Save the notes to local storage
+  localStorage.setItem("notes", notesArea.value);
+});
+
+function notification(small, big) {
+  var notifSmall = document.getElementById("notif-small");
+  var notifBig = document.getElementById("notif-big");
+  
+  notifSmall.textContent = small;
+  notifBig.textContent = big;
+
+  notif=document.getElementById("notification");
+  notif.style.animation="1s notif-a forwards";
+  setTimeout(function () {
+    notif.style.animation="0.5s notif-a-rev forwards";
+  }, 7000);
+}

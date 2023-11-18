@@ -34,9 +34,9 @@
 
 
 
-    <div class="notification">
-      <p>Now Playing:</p>
-      <h4>Chaotic Code</h4>
+    <div id="notification">
+      <p id="notif-small"></p>
+      <h4 id="notif-big"></h4>
       <div class="notif-rect"></div>
     </div>
 
@@ -50,7 +50,7 @@
         <div class="close"><i class="bi bi-x"></i></div>
         <div class="content">
           <h2 class="win-title">Features on this page so far</h2>
-          <p class="win-desc">The full screen button on the top left, the music and notes tabs appear when you press them in the side nav. MUSIC HAS FINALLY BEEN ADDED AND IT TOOK ME LIKE 4 HOURS. notes dont save yet. the bar on the top left is a notification, the text inside it is a place holder, it also doesnt go out of screen overtime. No shortcuts work yet</p>
+          <p class="win-desc">The full screen button on the top left, the music and notes tabs appear when you press them in the side nav. MUSIC HAS FINALLY BEEN ADDED AND IT TOOK ME LIKE 4 HOURS. notes save now and load when the website is reopened. the bar on the top left is a notification, the text inside it is a place holder, it also doesnt go out of screen overtime. No shortcuts work yet</p>
         </div>
       </div>
 
@@ -87,7 +87,7 @@
             </div>
             <div class="mus-btn-cont">
               <i class="bi bi-caret-left-fill mus-btn" onclick="goBackSong()"></i>
-              <i class="bi bi-pause-fill mus-btn" onclick="pauseSong()"></i>
+              <i class="bi bi-pause-fill mus-btn" onclick="pauseSong()" id="pauseButton"></i>
               <i class="bi bi-caret-right-fill mus-btn" onclick="skipSong()"></i>
             </div>
           </div>
@@ -102,6 +102,9 @@
             </div>
             <div class="mus-song" onclick="selectSong(this)">
               <p><i class="bi bi-caret-right-fill mus-btn"></i> NamiRyo</p><span class="artist-name">Aisthimata</span>
+            </div>
+            <div class="mus-song" onclick="selectSong(this)">
+              <p><i class="bi bi-caret-right-fill mus-btn"></i> Flamewall</p><span class="artist-name">Camellia</span>
             </div>
           </div>
 
