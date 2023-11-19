@@ -16,9 +16,10 @@
     </div> 
 
 
-    <div id="top"><i class="bi bi-gear-fill" id="settings">
+    <div id="top">
+      <i class="bi bi-gear-fill" id="settings" onclick="openSettings()"></i>
       <i class="bi bi-fullscreen" id="fc"></i>
-      </i><i class="bi bi-arrow-bar-left" id="open-side-menu"></i>
+      <i class="bi bi-arrow-bar-left" id="open-side-menu"></i>
     </div>
 
     <div id="side-menu">
@@ -31,7 +32,31 @@
       <div class="sm-bar-cont"><div class="sm-bar"><h3 class="solved"><i class="bi bi-book-half"></i> Tutorial</h3></div></div>
     </div>
 
-
+    <div id="settings-menu">
+      <h1 style="font-size: 45px;"><i class="bi bi-gear-fill" style="font-size: 35px;"></i> Settings</h1>
+      <i class="bi bi-x" id="close-set" onclick="closeSettings()"></i>
+      <div id="set-1">
+        <div class="set">
+          <p>Background</p>
+          <div class="switch">
+            <div class="switch-in"></div>
+          </div>
+        </div>
+        <div class="set">
+          <p>Music</p>
+          <div class="switch">
+            <div class="switch-in"></div>
+          </div>
+        </div>
+        <div class="set">
+          <p>Notifications</p>
+          <div class="switch">
+            <div class="switch-in"></div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
 
 
     <div id="notification">
@@ -81,8 +106,8 @@
 
           <div class="mus-page" id="mus-player">
             <div id="mus-info">
-              <h3>Chaotic Code</h3>
-              <p>By SNKS Project</p>
+              <h3>null</h3>
+              <p>null</p>
 
             </div>
             <div class="mus-btn-cont">

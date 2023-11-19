@@ -164,6 +164,8 @@ function playerSelect(selectedId) {
       elements[i].style.display="none";
     }
     page.style.display="block"
+
+    
   }
 }
 
@@ -176,6 +178,8 @@ var currentSongIndex = 0;
 for (var i = 0; i < songList.length; i++) {
   songList[i].addEventListener('click', function () {
     selectSong(this);
+    pauseButton.classList.remove('bi-play-fill');
+    pauseButton.classList.add('bi-pause-fill');
   });
 }
 
@@ -313,4 +317,16 @@ function notification(small, big) {
   setTimeout(function () {
     notif.style.animation="0.5s notif-a-rev forwards";
   }, 7000);
+}
+
+settings = document.getElementById("settings");
+closeSet = document.getElementById("close-set");
+
+function openSettings() {
+  setM = document.getElementById("settings-menu");
+  setM.style.display = "block";
+}
+function closeSettings() {
+  setM = document.getElementById("settings-menu");
+  setM.style.display = "none";
 }
