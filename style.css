@@ -381,10 +381,17 @@ audio{
     font-size: 29px;
     width: 50%;
     border-right: 1px var(--main) solid;
-    margin-top: 5%;
-    height: 235px;
+    margin-top: 75px;
+    height: 335px;
+    position: absolute;
 }
-
+#set-2{
+    font-size: 29px;
+    width: 50%;
+    margin-left: 50%;
+    margin-top: 95px;
+    height: 315px;
+}
 #close-set{
     position: absolute;
     top: -6px;
@@ -401,20 +408,41 @@ audio{
     height: 55px;
     margin-left: 13%;
     margin-top: 25px;
-  }
+}
   
-  .switch {
+.switch {
     transform: skew(-30deg);
     border: 2px solid var(--main);
     width: 55px;
     height: 25px;
     margin-bottom: 13px;
-  }
+    cursor: pointer;
+}
   
-  .switch-in {
+.switch-in {
     width: 50%;
     height: 100%;
     background-color: var(--main);
     margin-left: 26px;
-  }
+}
+
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 455px; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #000000; /* Grey background */
+    outline: 2px solid var(--main); /* Remove outline */
+    transform: skew(-30deg);
+}
   
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: var(--main); /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+

@@ -24,7 +24,7 @@
 
     <div id="side-menu">
       <div class="sm-bar-cont"onclick="tabopen('music')"><div class="sm-bar"><h3><i class="bi bi-music-note-beamed"></i> Music</h3></div></div>
-      <div class="sm-bar-cont"><div class="sm-bar"><h3><i class="bi bi-alt"></i> Shortcuts</h3></div></div>
+      <div class="sm-bar-cont" onclick="tabopen('shortcuts')"><div class="sm-bar"><h3><i class="bi bi-alt"></i> Shortcuts</h3></div></div>
       <div class="sm-bar-cont" onclick="tabopen('notes')"><div class="sm-bar"><h3><i class="bi bi-card-text"></i> Notes</h3></div></div>
       <div class="sm-bar-cont"><div class="sm-bar"><h3><i class="bi bi-palette-fill"></i> Themes</h3></div></div>
       <div class="sm-bar-cont"><div class="sm-bar"><h3 class="unsolved"><i class="bi bi-puzzle"></i> Unsolved</h3></div></div>
@@ -49,10 +49,22 @@
           </div>
         </div>
         <div class="set">
+          <p>Sound Effects</p>
+          <div class="switch">
+            <div class="switch-in"></div>
+          </div>
+        </div>
+        <div class="set">
           <p>Notifications</p>
           <div class="switch">
             <div class="switch-in"></div>
           </div>
+        </div>
+      </div>
+      <div id="set-2">
+        <p>Music Volume</p>
+        <div id="slider">
+          <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
         </div>
       </div>
       
@@ -75,7 +87,7 @@
         <div class="close"><i class="bi bi-x"></i></div>
         <div class="content">
           <h2 class="win-title">Features on this page so far</h2>
-          <p class="win-desc">The full screen button on the top left, the music and notes tabs appear when you press them in the side nav. MUSIC HAS FINALLY BEEN ADDED AND IT TOOK ME LIKE 4 HOURS. notes save now and load when the website is reopened. the bar on the top left is a notification, it appears when a new song is playing, it displays the song name too. No shortcuts work yet</p>
+          <p class="win-desc">The full screen button on the top left, the music and notes tabs appear when you press them in the side nav. MUSIC HAS FINALLY BEEN ADDED AND IT TOOK ME LIKE 4 HOURS. notes save now and load when the website is reopened. the bar on the top left is a notification, it appears when a new song is playing, it displays the song name too. No shortcuts work yet. the setting tab works but its not functional yet</p>
         </div>
       </div>
 
@@ -89,6 +101,17 @@
           <p class="win-desc"><textarea id="notes-textarea" placeholder="Anything written here will be saved"></textarea></p>
         </div>
       </div>
+
+
+      <div class="draggable" id="shortcuts">
+        <div class="drag-handle">
+        </div>
+        <div class="close"><i class="bi bi-x"></i></div>
+        <div class="content">
+          <h2 class="win-title">Shortcuts</h2>
+        </div>
+      </div>
+
 
 
       <div class="draggable" id="music">
