@@ -1,3 +1,64 @@
+// Get the slider element
+var musicVolumeSlider = document.getElementById('musicVolumeSlider');
+
+// Add an event listener to the slider to capture changes in volume
+musicVolumeSlider.addEventListener('input', function () {
+  updateMusicVolume();
+});
+
+// Function to update the music volume based on the slider value
+function updateMusicVolume() {
+  var volume = parseFloat(musicVolumeSlider.value);
+  musicPlayer.volume = volume;
+
+  // Save the volume to local storage
+  localStorage.setItem('musicVolume', volume.toString());
+}
+
+// Load the saved volume from local storage when the page loads
+window.addEventListener('load', function () {
+  // Check if there is a saved volume in local storage
+  var savedVolume = localStorage.getItem('musicVolume');
+  if (savedVolume !== null) {
+    // Set the slider value to the saved volume
+    musicVolumeSlider.value = parseFloat(savedVolume);
+    // Update the music volume based on the saved volume
+    updateMusicVolume();
+  }
+});
+
+// Function to play a sound effect
+function playSoundEffect(soundEffectPath) {
+  var soundEffectPlayer = new Audio(soundEffectPath);
+  soundEffectPlayer.play();
+}
+
+// Function to play the settings menu sound effect
+function playSettingsMenuSound() {
+  playSoundEffect('path/to/your/sound_effect.mp3');
+}
+
+// Function to play any sound effect
+function playCustomSoundEffect(soundEffectPath) {
+  playSoundEffect(soundEffectPath);
+}
+
+// Update the playSelectedSong function
+
+// Function to handle the play button click
+function playSelectedSong() {
+  if (selectedSong) {
+    // Set the source of the audio player to the selected song
+    musicPlayer.src = selectedSong.toLowerCase().replace(/\s+/g, '') + '.mp3';
+
+    // Set the volume based on the slider value
+    updateMusicVolume();
+
+    // Play the audio
+    musicPlayer.play();
+  }
+}
+
 window.addEventListener("load", function () {
   // Assuming you have a predefined CSS animation named "loaded"
   preloader = document.getElementById("preloader");
@@ -319,13 +380,17 @@ function notification(small, big) {
   }, 7000);
 }
 
+
 settings = document.getElementById("settings");
 closeSet = document.getElementById("close-set");
 
 function openSettings() {
   setM = document.getElementById("settings-menu");
   setM.style.display = "block";
+  // Example of playing a custom sound effect
+  playCustomSoundEffect('zapsplat_science_fiction_door_code_unlock_accept_001_61688.mp3');
 }
+
 function closeSettings() {
   setM = document.getElementById("settings-menu");
   setM.style.display = "none";
