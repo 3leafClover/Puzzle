@@ -3,6 +3,10 @@
     src: url(TechnicalStandardVP-Light.otf);
  }
  
+
+ :root{
+    --main: rgb(0, 209, 209);
+}
 body {
     background-color: rgb(2, 0, 34);
     background-image: url("videoplasty-18255-data-background-motion-graphics-pdp.gif");
@@ -55,9 +59,6 @@ body {
   }
   
 
-:root{
-    --main: rgb(0, 209, 209);
-}
 .center{
     padding-left: 35%;
     padding-top:9%;
