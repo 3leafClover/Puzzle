@@ -5,7 +5,7 @@
  
 
  :root{
-    --main: rgb(0, 209, 209);
+    --main: rgb(0, 255, 255);
 }
 body {
     background-color: rgb(2, 0, 34);
@@ -448,4 +448,27 @@ audio{
     background: var(--main); /* Green background */
     cursor: pointer; /* Cursor on hover */
 }
-
+#color-cont {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 25px;
+    grid-gap: 45px;
+    
+  }
+  
+.color-button{
+    width: 45px;
+    height: 45px;
+    border: 3px solid white;
+}
+#pink-b{
+    background-color: rgb(255, 0, 221);
+}
+#cyan-b{
+    background-color: rgb(0, 255, 255);
+}
+.locked{
+    color: rgb(255, 255, 255);
+    font-size:26px;
+}

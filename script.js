@@ -395,3 +395,16 @@ function closeSettings() {
   setM = document.getElementById("settings-menu");
   setM.style.display = "none";
 }
+
+function changeColor(color) {
+  if(color=="pink"){
+    var newColor = "rgb(255, 0, 221)";
+  }
+  if(color=="cyan"){
+    var newColor = "rgb(0, 255, 255)";
+  }
+
+
+  document.documentElement.style.setProperty('--main', newColor);
+}
+

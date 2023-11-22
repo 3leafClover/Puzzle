@@ -23,10 +23,9 @@
     </div>
 
     <div id="side-menu">
-      <div class="sm-bar-cont"onclick="tabopen('music')"><div class="sm-bar"><h3><i class="bi bi-music-note-beamed"></i> Music</h3></div></div>
-      <div class="sm-bar-cont" onclick="tabopen('shortcuts')"><div class="sm-bar"><h3><i class="bi bi-alt"></i> Shortcuts</h3></div></div>
+      <div class="sm-bar-cont" onclick="tabopen('music')"><div class="sm-bar"><h3><i class="bi bi-music-note-beamed"></i> Music</h3></div></div>
       <div class="sm-bar-cont" onclick="tabopen('notes')"><div class="sm-bar"><h3><i class="bi bi-card-text"></i> Notes</h3></div></div>
-      <div class="sm-bar-cont"><div class="sm-bar"><h3><i class="bi bi-palette-fill"></i> Themes</h3></div></div>
+      <div class="sm-bar-cont" onclick="tabopen('themes')"><div class="sm-bar"><h3><i class="bi bi-palette-fill"></i> Themes</h3></div></div>
       <div class="sm-bar-cont"><div class="sm-bar"><h3 class="unsolved"><i class="bi bi-puzzle"></i> Unsolved</h3></div></div>
       <div class="sm-bar-cont"><div class="sm-bar"><h3 class="solved"><i class="bi bi-puzzle-fill"></i> Solved</h3></div></div>
       <div class="sm-bar-cont"><div class="sm-bar"><h3 class="solved"><i class="bi bi-book-half"></i> Tutorial</h3></div></div>
@@ -103,12 +102,20 @@
       </div>
 
 
-      <div class="draggable" id="shortcuts">
+      <div class="draggable" id="themes">
         <div class="drag-handle">
         </div>
         <div class="close"><i class="bi bi-x"></i></div>
         <div class="content">
-          <h2 class="win-title">Shortcuts</h2>
+          <h2 class="win-title">Themes</h2>
+          <div id="color-cont">  
+            <button class="color-button" id="cyan-b" onclick="changeColor('cyan')"></button>
+            <button class="color-button" id="pink-b" onclick="changeColor('pink')"></button>
+            <button class="color-button locked" id="pink-b" onclick="changeColor('pink')"><i class="bi bi-lock-fill"></i></button>
+            <button class="color-button" id="pink-b" onclick="changeColor('pink')"></button>
+            <button class="color-button" id="pink-b" onclick="changeColor('pink')"></button>
+            <button class="color-button" id="pink-b" onclick="changeColor('pink')"></button>
+          </div>
         </div>
       </div>
 
@@ -159,6 +166,9 @@
             </div>
             <div class="mus-song" onclick="selectSong(this)">
               <p><i class="bi bi-caret-right-fill mus-btn"></i> Hypervelocity</p><span class="artist-name">Synthion</span>
+            </div>
+            <div class="mus-song" onclick="selectSong(this)">
+              <p><i class="bi bi-caret-right-fill mus-btn"></i> Enchanted_Love</p><span class="artist-name">Linear Ring</span>
             </div>
           </div>
 
