@@ -32,10 +32,12 @@ window.addEventListener('load', function () {
     updateMusicVolume();
   }
 
-  if (musicSwitchState === '26px') {
+  // Check if it's the first time or if the music switch is in the 'on' state
+  if (isFirstTime || musicSwitchState === '26px') {
     playSelectedSong();
   }
 });
+
 
 function playSoundEffect(soundEffectPath) {
     var soundEffectPlayer = new Audio(soundEffectPath);
