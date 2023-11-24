@@ -175,6 +175,7 @@ body {
     color: rgb(255, 0, 0);
 }
 #notification{
+    display: none;
     position: absolute;
     top: 85px;
     width: 235px;

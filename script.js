@@ -32,7 +32,6 @@ window.addEventListener('load', function () {
     updateMusicVolume();
   }
 
-  // Check if it's the first time or if the music switch is in the 'on' state
   if (isFirstTime || musicSwitchState === '26px') {
     playSelectedSong();
   }
@@ -45,7 +44,6 @@ function playSoundEffect(soundEffectPath) {
   }
 
 
-// You can still keep the playCustomSoundEffect function if needed
 function playCustomSoundEffect(soundEffectPath) {
   var soundSwitchState = localStorage.getItem('switchState_SoundEffects');
   playSoundEffect(soundEffectPath);
@@ -343,6 +341,7 @@ function changeColor(color) {
   document.documentElement.style.setProperty('--main', newColor);
 }
 
+
 document.addEventListener('DOMContentLoaded', function () {
   var switchElements = document.querySelectorAll('.switch');
   switchElements.forEach(function (switchElement) {
@@ -356,40 +355,51 @@ document.addEventListener('DOMContentLoaded', function () {
       document.body.style.backgroundImage = 'url("videoplasty-18255-data-background-motion-graphics-pdp.gif")';
     }
 
-  switchElement.addEventListener('click', function () {
-    var currentMargin = switchInElement.style.marginLeft;
-    switchInElement.style.marginLeft = currentMargin === '0px' ? '26px' : '0px';
-    var switchState = switchInElement.style.marginLeft;
-    localStorage.setItem('switchState_' + switchId, switchState);
-    applyStylesBasedOnSwitchState(switchId, switchState);
+    switchElement.addEventListener('click', function () {
+      var currentMargin = switchInElement.style.marginLeft;
+      switchInElement.style.marginLeft = currentMargin === '0px' ? '26px' : '0px';
+      var switchState = switchInElement.style.marginLeft;
+      localStorage.setItem('switchState_' + switchId, switchState);
+      applyStylesBasedOnSwitchState(switchId, switchState);
+    });
   });
-});
 
   function applyStylesBasedOnSwitchState(switchId, switchState) {
-    switch (switchId) {
-      
-      case 'Background':
-        if (switchState === '0px') {
-          document.body.style.background = 'black';
-          notification("Background is off, It can be turned on again in the settings menu.");
 
-        } else {
-          document.body.style.backgroundImage = 'url("videoplasty-18255-data-background-motion-graphics-pdp.gif")';
-        }
-        break;
-      case 'Music':
-          if (switchState === '0px') {
-            musicPlayer.pause();
-            musicPlayer.src = '';
-            notification("Music player is off, It can be turned on again in the settings menu.");
-          }
-          else{
-            playSelectedSong()
-            setTimeout(function () {
-              notification("Now Playing:", selectedSong);
-            }, 3000);
-          }
-        break;
+
+  if (switchId === 'Background') {
+    if (switchState === '0px') {
+      document.body.style.background = 'black';
+      notification("Background is off, It can be turned on again in the settings menu.");
+    } else {
+      document.body.style.backgroundImage = 'url("videoplasty-18255-data-background-motion-graphics-pdp.gif")';
+    }
+  }
+
+    if (switchId === 'Music') {
+      if (switchState === '0px') {
+        musicPlayer.pause();
+        musicPlayer.src = '';
+        notification("Music player is off, It can be turned on again in the settings menu.");
+      } else {
+        playSelectedSong();
+        setTimeout(function () {
+          notification("Now Playing:", selectedSong);
+        }, 3000);
+      }
+    }
+
+    if (switchId === 'Notifications' && switchState === '0px') {
+      setTimeout(function () {
+        notif.style.display = 'none';
+      }, 3000);
+    } 
+
+    if (switchId === 'Notifications' && switchState !== '0px') {
+      setTimeout(function () {
+        notif.style.display = 'block';
+        notification("Notifications are currently being displayed");
+      }, 3000);
     }
   }
 });
