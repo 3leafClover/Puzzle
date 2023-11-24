@@ -452,8 +452,8 @@ audio{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 25px;
-    grid-gap: 45px;
+    margin: 35px;
+    grid-gap: 35px;
     
   }
   
