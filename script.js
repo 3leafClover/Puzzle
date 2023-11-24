@@ -6,6 +6,17 @@ musicVolumeSlider.addEventListener('input', function () {
   updateMusicVolume();
 });
 
+var isFirstTime = localStorage.getItem('firstTime') === null;
+
+if (isFirstTime) {
+  localStorage.setItem('firstTime', 'no');
+  localStorage.setItem('savedColor', 'cyan');
+}
+
+var loadedColor = localStorage.getItem('savedColor');
+changeColor(loadedColor);
+
+
 function updateMusicVolume() {
   var volume = parseFloat(musicVolumeSlider.value);
   musicPlayer.volume = volume;
@@ -345,7 +356,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   switchElement.addEventListener('click', function () {
     var currentMargin = switchInElement.style.marginLeft;
-    switchInElement.style.marginLeft = currentMargin === '26px' ? '0px' : '26px';
+    switchInElement.style.marginLeft = currentMargin === '0px' ? '26px' : '0px';
     var switchState = switchInElement.style.marginLeft;
     localStorage.setItem('switchState_' + switchId, switchState);
     applyStylesBasedOnSwitchState(switchId, switchState);
