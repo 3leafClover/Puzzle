@@ -91,11 +91,21 @@ function findSongElement(songName) {
 var draggableTabs = document.querySelectorAll('.draggable');
 draggableTabs.forEach(function (draggableTab) {
   var dragHandle = draggableTab.querySelector('.drag-handle');
+  var closeButton = draggableTab.querySelector('.close');
   var offsetX, offsetY;
 
   dragHandle.addEventListener('mousedown', function (e) {
     offsetX = e.clientX - draggableTab.getBoundingClientRect().left;
     offsetY = e.clientY - draggableTab.getBoundingClientRect().top;
+    
+    draggableTab.style.zIndex = 1;
+
+    draggableTabs.forEach(function (tab) {
+      if (tab !== draggableTab) {
+        tab.style.zIndex = 0;
+      }
+    });
+
     document.addEventListener('mousemove', dragElement);
     document.addEventListener('mouseup', stopDragging);
   });
@@ -108,17 +118,18 @@ draggableTabs.forEach(function (draggableTab) {
   }
 
   function stopDragging() {
+    draggableTabs.forEach(function (tab) {
+    });
+
     document.removeEventListener('mousemove', dragElement);
     document.removeEventListener('mouseup', stopDragging);
   }
-});
 
-draggableTabs.forEach(function (draggableTab) {
-  var closeButton = draggableTab.querySelector('.close');
   closeButton.addEventListener('click', function () {
     draggableTab.style.display = "none";
   });
 });
+
 
 const fullscreenButton = document.getElementById('fc');
 fullscreenButton.addEventListener('click', toggleFullScreen);
@@ -327,18 +338,19 @@ function closeSettings() {
   setM = document.getElementById("settings-menu");
   setM.style.display = "none";
 }
-
 function changeColor(color) {
   localStorage.setItem("savedColor", color);
 
+  var newColor;
+
   if (color == "pink") {
-    var newColor = "rgb(255, 0, 221)";
-  }
-  if (color == "cyan") {
-    var newColor = "rgb(0, 255, 255)";
+    newColor = "rgb(255, 0, 221)";
+  } else if (color == "cyan") {
+    newColor = "rgb(0, 255, 255)";
   }
 
   document.documentElement.style.setProperty('--main', newColor);
+  notification("New Theme Selected:", color.charAt(0).toUpperCase() + color.slice(1));
 }
 
 
