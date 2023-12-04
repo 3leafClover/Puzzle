@@ -147,6 +147,7 @@ function toggleFullScreen() {
     } else if (elem.msRequestFullscreen) {
       elem.msRequestFullscreen();
     }
+    playCustomSoundEffect('zapsplat_science_fiction_door_code_unlock_accept_001_61688.mp3')
   } else {
     if (document.exitFullscreen) {
       document.exitFullscreen();
@@ -161,7 +162,15 @@ function toggleFullScreen() {
 }
 
 function toggleButtonVisibility() {
-  fullscreenButton.style.display = document.fullscreenElement ? 'none' : 'inline-block';
+  const fullscreenButton = document.getElementById('fc');
+  
+  if (document.fullscreenElement) {
+    fullscreenButton.classList.remove('bi-fullscreen');
+    fullscreenButton.classList.add('bi-fullscreen-exit');
+  } else {
+    fullscreenButton.classList.remove('bi-fullscreen-exit');
+    fullscreenButton.classList.add('bi-fullscreen');
+  }
 }
 
 function tabopen(name) {
@@ -335,9 +344,10 @@ function openSettings() {
 }
 
 function closeSettings() {
-  setM = document.getElementById("settings-menu");
+  setM = document.getElementById("settings-menu");  
   setM.style.display = "none";
 }
+
 function changeColor(color) {
   localStorage.setItem("savedColor", color);
 
@@ -346,7 +356,7 @@ function changeColor(color) {
   if (color == "pink") {
     newColor = "rgb(255, 0, 221)";
   } else if (color == "cyan") {
-    newColor = "rgb(0, 255, 255)";
+    newColor = "rgb(0, 235, 235)";
   }
 
   document.documentElement.style.setProperty('--main', newColor);
