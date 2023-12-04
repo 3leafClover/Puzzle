@@ -358,7 +358,9 @@ function changeColor(color) {
   } else if (color == "cyan") {
     newColor = "rgb(0, 235, 235)";
   }
-
+  else{
+    newColor = "rgb(0, 235, 235)"
+  }
   document.documentElement.style.setProperty('--main', newColor);
   notification("New Theme Selected:", color.charAt(0).toUpperCase() + color.slice(1));
 }
