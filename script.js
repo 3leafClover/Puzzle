@@ -357,13 +357,18 @@ function changeColor(color) {
     newColor = "rgb(255, 0, 221)";
   } else if (color == "cyan") {
     newColor = "rgb(0, 235, 235)";
+  } else if (color == "blue") {
+    newColor = "rgb(89, 0, 255)";
+  } else if (color == "orange") {
+    newColor = "rgb(255, 123, 0)";
+  } else {
+    newColor = "rgb(0, 235, 235)";
   }
-  else{
-    newColor = "rgb(0, 235, 235)"
-  }
+
   document.documentElement.style.setProperty('--main', newColor);
   notification("New Theme Selected:", color.charAt(0).toUpperCase() + color.slice(1));
 }
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -427,3 +432,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 });
+var centerTabsIcon = document.getElementById('center-tabs');
+centerTabsIcon.addEventListener('click', centerTabs);
+
+function centerTabs() {
+  draggableTabs.forEach(function (draggableTab) {
+    draggableTab.style.left = '35%';
+    draggableTab.style.top = '19.1%';
+  });
+}

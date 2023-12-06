@@ -472,6 +472,12 @@ audio{
 #cyan-b{
     background-color: rgb(0, 255, 255);
 }
+#blue-b{
+    background-color: rgb(89, 0, 255);
+}
+#orange-b{
+    background-color: rgb(255, 123, 0);
+}
 .locked{
     color: rgb(255, 255, 255);
     font-size:26px;
