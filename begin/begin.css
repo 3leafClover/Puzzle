@@ -1,0 +1,72 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(Tries.ttf);
+ }
+ 
+ * {
+    font-family: myFirstFont;
+    color: #ffffff;
+ }
+ body{
+     background-color: black;
+     text-align: center;
+ }
+ p{
+     font-size:55px;
+     margin: 5px;
+ }
+ #dialogue1{
+     padding: 35px;
+ }
+ #dialogue2,#dialogue3{
+     padding: 35px;
+     display: none;
+     
+ }
+ .status{
+     display: none;
+     font-size: 65px;
+     text-align: left;
+     margin-left: 311px;
+ }
+ input,#dialogue2 p{
+     font-size: 95px;
+     margin-bottom: -33px;
+ }
+ .red{
+     color: rgb(255, 0, 255);
+ }
+ .pink{
+     color: rgb(255, 0, 0);
+ }
+ .blue{
+     color: blue;
+ }
+ input{
+     background-color: black;
+     border: 3px ;
+     text-align: center;
+     text-transform: uppercase;
+     border-bottom:3px solid white ;
+     outline: none;
+     caret-shape:underscore;
+     caret-color: black;
+ }
+ 
+   
+ #dialogue3 p{
+     font-size: 75px;
+     margin-top: -33px;
+ }
+ .green{
+     color: rgb(0, 255, 0);
+ }
+ @keyframes b1 {
+     from {
+         background-color: black;
+     }
+     to {
+         background-color: rgb(255, 255, 255);
+     }
+ }
+ 

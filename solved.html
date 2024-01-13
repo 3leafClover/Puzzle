@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE</title>
+    <link rel="icon" type="image/x-icon" href="New_logo-removebg-preview.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">  
+  </head>
+  <body>
+
+    <div id="preloader">
+      <img src="https://i.gifer.com/2RNb.gif" id="load-gif"><p id="load-text">loading</p><p id="load-tip">Tip: Use alt + F for full screen</p>
+    </div> 
+
+
+    <div id="top">
+      <i class="bi bi-gear-fill" id="settings" onclick="openSettings()"></i>
+      <i class="bi bi-fullscreen" id="fc"></i>
+      <i class="bi bi-arrow-bar-left" id="open-side-menu"></i>
+      <i class="bi bi-back" id="center-tabs"></i>
+    </div>
+
+    <div id="side-menu">
+      <div class="sm-bar-cont" onclick="tabopen('music')"><div class="sm-bar"><h3><i class="bi bi-music-note-beamed"></i> Music</h3></div></div>
+      <div class="sm-bar-cont" onclick="tabopen('notes')"><div class="sm-bar"><h3><i class="bi bi-card-text"></i> Notes</h3></div></div>
+      <div class="sm-bar-cont" onclick="tabopen('themes')"><div class="sm-bar"><h3><i class="bi bi-palette-fill"></i> Themes</h3></div></div>
+      <div class="sm-bar-cont"><div class="sm-bar"><h3 class="unsolved"><i class="bi bi-puzzle"></i> Unsolved</h3></div></div>
+      <div class="sm-bar-cont"><div class="sm-bar"><h3 class="solved"><i class="bi bi-puzzle-fill"></i> Solved</h3></div></div>
+      <div class="sm-bar-cont"><div class="sm-bar"><h3 class="solved"><i class="bi bi-book-half"></i> Tutorial</h3></div></div>
+    </div>
+
+    <div id="settings-menu">
+      <h1 style="font-size: 45px;"><i class="bi bi-gear-fill" style="font-size: 35px;"></i> Settings</h1>
+      <i class="bi bi-x" id="close-set" onclick="closeSettings()"></i>
+      <div id="set-1">
+        <div class="set">
+          <p>Background</p>
+          <div class="switch" id="bgSet">
+            <div class="switch-in" id="bgIn"></div>
+          </div>
+        </div>
+        <div class="set">
+          <p>Music</p>
+          <div class="switch" id="musicSet">
+            <div class="switch-in" id="musicIn"></div>
+          </div>
+        </div>
+        <div class="set">
+          <p>Notifications</p>
+          <div class="switch" id="notifSet">
+            <div class="switch-in" id="notifIn"></div>
+          </div>
+        </div>
+      </div>
+      <div id="set-2">
+        <p>Music Volume</p>
+        <div id="slider">
+          <input type="range" min="0" max="1" step="0.1" value="0.5" class="slider" id="musicVolumeSlider">
+        </div>
+      </div>
+      
+    </div>
+
+
+    <div id="notification">
+      <p id="notif-small"></p>
+      <h4 id="notif-big"></h4>
+      <div class="notif-rect"></div>
+    </div>
+
+    <div class="center">
+
+
+
+      <div class="draggable" style="display: block;">
+        <div class="drag-handle">
+        </div>
+        <div class="close"><i class="bi bi-x"></i></div>
+        <div class="content">
+          <h2 class="win-title">Features on this page so far</h2>
+          <p class="win-desc">I stopped updating this page lmao im adding way too many features way too fast and im having trouble updating it every time</p>
+        </div>
+      </div>
+
+
+      <div class="draggable" id="notes">
+        <div class="drag-handle">
+        </div>
+        <div class="close"><i class="bi bi-x"></i></div>
+        <div class="content">
+          <h2 class="win-title">Notes</h2>
+          <p class="win-desc"><textarea id="notes-textarea" placeholder="Anything written here will be saved"></textarea></p>
+        </div>
+      </div>
+
+
+      <div class="draggable" id="themes">
+        <div class="drag-handle">
+        </div>
+        <div class="close"><i class="bi bi-x"></i></div>
+        <div class="content">
+          <h2 class="win-title">Themes</h2>
+          <div id="color-cont">  
+            <button class="color-button" id="cyan-b" onclick="changeColor('cyan')"></button>
+            <button class="color-button" id="pink-b" onclick="changeColor('pink')"></button>
+            <button class="color-button" id="blue-b" onclick="changeColor('blue')"></button>
+            <button class="color-button" id="orange-b" onclick="changeColor('orange')"></button>
+            <button class="color-button locked" id="pink-b" onclick="changeColor('pink')"><i class="bi bi-lock-fill"></i></button>
+            <button class="color-button" id="pink-b" onclick="changeColor('pink')"></button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="draggable" id="music">
+        <div class="drag-handle">
+        </div>
+        <div class="close"><i class="bi bi-x"></i></div>
+        <div class="content">
+          <h2 class="win-title">Music</h2>
+          <div id="music-nav">
+            <p class="mus-nav-btn" id="mus-player-li" onclick="playerSelect('mus-player-li')">Player</p>
+            <p class="mus-nav-btn" id="mus-list-li" onclick="playerSelect('mus-list-li')">List</p>
+            <p class="mus-nav-btn" id="mus-artists-li" onclick="playerSelect('mus-artists-li')">Artists</p>
+          </div>
+          <div class="mus-page" style="display: block;"><p style="margin:15px;margin-top: 25px;font-size: 25px;position: absolute;width: 259px;">Note: All music here is royalty free or used with the permission of their respective artists</p></div>
+
+          <div class="mus-page" id="mus-player">
+            <div id="mus-info">
+              <h3>null</h3>
+              <p>null</p>
+
+            </div>
+            <div class="mus-btn-cont">
+              <i class="bi bi-caret-left-fill mus-btn" onclick="goBackSong()"></i>
+              <i class="bi bi-pause-fill mus-btn" onclick="pauseSong()" id="pauseButton"></i>
+              <i class="bi bi-caret-right-fill mus-btn" onclick="skipSong()"></i>
+            </div>
+          </div>
+
+          <div class="mus-page" id="mus-list">
+
+            <div class="mus-song" onclick="selectSong(this)">
+              <p><i class="bi bi-caret-right-fill mus-btn"></i> Chaotic_Code</p><span class="artist-name">SNKS Project</span>
+            </div>
+            <div class="mus-song" onclick="selectSong(this)">
+              <p><i class="bi bi-caret-right-fill mus-btn"></i> Lazúrillys</p><span class="artist-name">Ascellia Mio</span>
+            </div>
+            <div class="mus-song" onclick="selectSong(this)">
+              <p><i class="bi bi-caret-right-fill mus-btn"></i> Aisthήmata</p><span class="artist-name">Namiryo</span>
+            </div>
+            <div class="mus-song" onclick="selectSong(this)">
+              <p><i class="bi bi-caret-right-fill mus-btn"></i> Flamewall</p><span class="artist-name">Camellia</span>
+            </div>
+            <div class="mus-song" onclick="selectSong(this)">
+              <p><i class="bi bi-caret-right-fill mus-btn"></i> Tiny_Fate</p><span class="artist-name">Capchii</span>
+            </div>
+            <div class="mus-song" onclick="selectSong(this)">
+              <p><i class="bi bi-caret-right-fill mus-btn"></i> Hypervelocity</p><span class="artist-name">Synthion</span>
+            </div>
+            <div class="mus-song" onclick="selectSong(this)">
+              <p><i class="bi bi-caret-right-fill mus-btn"></i> Enchanted_Love</p><span class="artist-name">Linear Ring</span>
+            </div>
+          </div>
+
+
+
+          <div class="mus-page" id="mus-artists">
+            <div class="artist">
+              <img src="pfp.png">
+              <div class="artist-info">
+                <h5>Artist Name</h5>
+                <p>"Artist Quote"</p>
+              </div>
+            </div>
+            <div class="artist">
+              <img src="pfp.png">
+              <div class="artist-info">
+                <h5>Clovey Wovie</h5>
+                <p>"Everything here is a placeholder rn"</p>
+              </div>
+            </div>
+            <div class="artist">
+              <img src="pfp.png">
+              <div class="artist-info">
+                <h5>Clovey Wovie</h5>
+                <p>"Alberto go water the plants"</p>
+              </div>
+            </div>
+            <div class="artist">
+              <img src="pfp.png">
+              <div class="artist-info">
+                <h5>Clovey Wovie</h5>
+                <p>"Alberto go water the plants"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size: 45px;margin-left: 35px;position: absolute; bottom: 5px;z-index: 3;"><a href="https://discord.gg/VcqzqjTw" target="_blank" style="text-decoration: none;color: white;">Discord Server for development of this website</a></p>
+
+
+    
+
+    <audio id="musicPlayer" controls>
+      <source src="namiryo.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
