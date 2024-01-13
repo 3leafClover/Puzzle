@@ -470,3 +470,17 @@ function updateMusicVolume() {
 }
 
   var musicSwitchState = localStorage.getItem('switchState_Music');
+
+
+
+
+// Shortcuts
+document.addEventListener("keydown", (e) => {
+  if (e.altKey) {
+      switch (e.code) {
+          case "KeyZ":
+              toggleFullScreen();
+              break;
+      }
+    }
+});
