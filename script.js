@@ -8,29 +8,39 @@ if (!localStorage.getItem('Website Done By:')) {
 
 // Loading screen disappear
 window.addEventListener("load", function () {
-    console.log("uwu");
-    var preloader = document.getElementById("preloader");
-    preloader.style.animation = "loaded 1s forwards";
-    notif = document.getElementById("notification");
-
-    // Play Beginning Song
-    selectedSong = "Chaotic_Code";
-    var musicSetting = localStorage.getItem('musicState'); // Fixed variable name
-
-    if (musicSetting === 'on') {
-        setTimeout(function() {
-            playSelectedSong();
-            checkNotificationSetting()
-            notification("Now Playing:", selectedSong);
-        }, 3000);
-    }
-    var bgSetting = localStorage.getItem('bgState');
-    if (bgSetting === 'on') {
-        document.body.style.background = "url(videoplasty-18255-data-background-motion-graphics-pdp.gif)";
-    } else {
-        document.body.style.background = "black";
-    }
+  websiteloaded();
 });
+
+function websiteloaded() {
+  document.getElementById("load-text").outerHTML = '<p class="load-btn" id="load-text">Ready</p>';
+  document.getElementById("load-text").addEventListener("click", websitestart);
+}
+
+function websitestart() {
+  console.log("uwu");
+  var preloader = document.getElementById("preloader");
+  preloader.style.animation = "loaded 1s forwards";
+  notif = document.getElementById("notification");
+
+  // Play Beginning Song
+  selectedSong = "Chaotic_Code";
+  var musicSetting = localStorage.getItem('musicState'); // Fixed variable name
+
+  if (musicSetting === 'on') {
+      setTimeout(function() {
+          playSelectedSong();
+          checkNotificationSetting();
+          notification("Now Playing:", selectedSong);
+      }, 3000);
+  }
+  var bgSetting = localStorage.getItem('bgState');
+  if (bgSetting === 'on') {
+      document.body.style.background = "url(videoplasty-18255-data-background-motion-graphics-pdp.gif)";
+  } else {
+      document.body.style.background = "black";
+  }
+}
+
 
 
 

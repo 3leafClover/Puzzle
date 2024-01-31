@@ -37,8 +37,16 @@ body {
 #load-text {
     position: absolute;
     font-size: 33px;
-    color: var(--main);
+    color: rgb(0, 238, 238);
 }
+.load-btn{
+    border: 1px solid rgb(0, 238, 238);
+    padding-right: 14px;
+    padding-left: 14px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
 #load-tip {
     position: absolute;
     color: rgb(107, 107, 107);
@@ -120,7 +128,6 @@ body {
     text-align: center;
     color: var(--main);
     margin-top: 9px;
-    text-decoration: underline;
     font-size:24px ;
     font-weight: bold;
 }
